@@ -1,0 +1,21 @@
+all:task2
+
+task2:   JobControl.o LineParser.o task2.o
+	gcc -m32 task2.o LineParser.o JobControl.o -o task2
+	
+task2.o: task2.c
+	gcc -m32 -Wall -c task2.c -o task2.o
+	
+LineParser.o: LineParser.h LineParser.c
+	gcc -m32 -Wall -c LineParser.c -o LineParser.o
+
+JobControl.o: JobControl.h JobControl.c
+	gcc -m32 -Wall -c JobControl.c -o JobControl.o
+
+
+	
+
+	
+.PHONY: clean
+clean:
+	rm -f *.o myshell 

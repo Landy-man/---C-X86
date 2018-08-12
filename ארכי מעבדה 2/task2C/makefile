@@ -1,0 +1,14 @@
+ 
+ 
+all: create
+
+create: menu_map.o
+	gcc -m32 -g -Wall -o menu_map menu_map.o
+
+menu_map.o: menu_map.c
+	gcc -g -Wall -m32 -ansi -c -o menu_map.o menu_map.c
+	
+.PHONY: clean
+
+clean:
+	rm -f *.o menu_map
